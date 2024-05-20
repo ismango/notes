@@ -1,0 +1,65 @@
+SynologyNAS> dmesg | grep i915
+[    7.071733] i915 0000:01:00.0: [drm] Transparent Hugepage support is recommended for optimal performance on this platform!
+[    7.076635] i915 0000:01:00.0: [drm] *ERROR* conflict detected with stolen region: [mem 0x7c000000-0x7fbfffff]
+[    7.099072] i915 0000:01:00.0: BAR 6: can't assign [??? 0x00000000 flags 0x20000000] (bogus alignment)
+[    7.103581] i915 0000:01:00.0: [drm] Failed to find VBIOS tables (VBT)
+[    7.106768] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
+[    7.112421] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
+[    7.117187] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
+[    7.119103] i915 0000:01:00.0: vgaarb: changed VGA decodes: olddecodes=io+mem,decodes=io+mem:owns=none
+[    7.125508] i915 0000:01:00.0: [drm] Finished loading DMC firmware i915/icl_dmc_ver1_09.bin (v1.9)
+[    8.289170] i915 0000:01:00.0: [drm] [ENCODER:238:DDI A/PHY A] failed to retrieve link info, disabling eDP
+[    8.292044] i915 0000:01:00.0: Platform does not support port E
+[    8.293074] WARNING: CPU: 2 PID: 4989 at /home/runner/work/intel-gpu-i915-backports/intel-gpu-i915-backports/drivers/gpu/drm/i915/display/intel_display.c:7519 assert_port_valid+0x50/0x60 [i915]
+[    8.295622] Modules linked in: usbhid usb_storage hid virtio_net(OE) net_failover(OE) failover(OE) atkbd(OE) i915(OE+) i2c_algo_bit(OE) drm_buddy(OE) intel_gtt(OE) drm_display_helper(OE) drm_kms_helper(OE) ttm(OE) drm(OE) virtio_pci(OE) drm_mipi_dsi(OE) drm_panel_orientation_quirks(OE) i915_compat(OE) virtio(OE) kvm_intel(OE) kvm irqbypass i2c_i801(OE) virtio_ring(OE) dmabuf(OE) i8042(OE) rtc_cmos(OE) evdev(OE) evbug(OE) button(OE) xhci_pci xhci_hcd uhci_hcd ehci_pci ehci_hcd usbcore usb_common
+[    8.304294] RIP: 0010:assert_port_valid+0x50/0x60 [i915]
+[    8.317284]  [<ffffffffa057467c>] ? intel_ddi_init+0xcc/0xfe0 [i915]
+[    8.318275]  [<ffffffffa0596ae4>] ? intel_hdmi_init_connector+0x484/0x8e0 [i915]
+[    8.319452]  [<ffffffffa05745b0>] ? intel_ddi_port_pll_type+0x20/0x20 [i915]
+[    8.320527]  [<ffffffffa04d2823>] ? intel_bios_for_each_encoder+0x33/0x50 [i915]
+[    8.321646]  [<ffffffffa04f8d35>] ? intel_setup_outputs+0x345/0x920 [i915]
+[    8.322701]  [<ffffffffa04fa734>] ? intel_display_driver_probe_nogem+0x144/0x200 [i915]
+[    8.323902]  [<ffffffffa04283f9>] ? i915_driver_probe+0x579/0xc70 [i915]
+[    8.334160]  [<ffffffffa06a702c>] ? __init_backport+0x2c/0x88 [i915]
+[    8.345292] i915 0000:01:00.0: Platform does not support port F
+[    8.346241] WARNING: CPU: 2 PID: 4989 at /home/runner/work/intel-gpu-i915-backports/intel-gpu-i915-backports/drivers/gpu/drm/i915/display/intel_display.c:7519 assert_port_valid+0x50/0x60 [i915]
+[    8.348818] Modules linked in: usbhid usb_storage hid virtio_net(OE) net_failover(OE) failover(OE) atkbd(OE) i915(OE+) i2c_algo_bit(OE) drm_buddy(OE) intel_gtt(OE) drm_display_helper(OE) drm_kms_helper(OE) ttm(OE) drm(OE) virtio_pci(OE) drm_mipi_dsi(OE) drm_panel_orientation_quirks(OE) i915_compat(OE) virtio(OE) kvm_intel(OE) kvm irqbypass i2c_i801(OE) virtio_ring(OE) dmabuf(OE) i8042(OE) rtc_cmos(OE) evdev(OE) evbug(OE) button(OE) xhci_pci xhci_hcd uhci_hcd ehci_pci ehci_hcd usbcore usb_common
+[    8.357514] RIP: 0010:assert_port_valid+0x50/0x60 [i915]
+[    8.370461]  [<ffffffffa057467c>] ? intel_ddi_init+0xcc/0xfe0 [i915]
+[    8.371456]  [<ffffffffa0596ae4>] ? intel_hdmi_init_connector+0x484/0x8e0 [i915]
+[    8.372643]  [<ffffffffa05745b0>] ? intel_ddi_port_pll_type+0x20/0x20 [i915]
+[    8.373723]  [<ffffffffa04d2823>] ? intel_bios_for_each_encoder+0x33/0x50 [i915]
+[    8.375730]  [<ffffffffa04f8d35>] ? intel_setup_outputs+0x345/0x920 [i915]
+[    8.380373]  [<ffffffffa04fa734>] ? intel_display_driver_probe_nogem+0x144/0x200 [i915]
+[    8.382745]  [<ffffffffa04283f9>] ? i915_driver_probe+0x579/0xc70 [i915]
+[    8.392312]  [<ffffffffa06a702c>] ? __init_backport+0x2c/0x88 [i915]
+[    8.407760] i915 0000:01:00.0: [drm] GT0: GuC firmware i915/ehl_guc_70.1.1.bin version 70.1.1
+[    8.409021] i915 0000:01:00.0: [drm] GT0: HuC firmware i915/ehl_huc_9.0.0.bin version 9.0.0
+[    8.427639] i915 0000:01:00.0: [drm] GT0: HuC: authenticated for all workloads
+[    8.428724] i915 0000:01:00.0: [drm] GT0: GUC: submission disabled
+[    8.429618] i915 0000:01:00.0: [drm] GT0: GUC: SLPC disabled
+[    8.433079] [drm] Initialized i915 1.6.0 20201103 for 0000:01:00.0 on minor 0
+[    8.434495] i915 display info: display version: 11
+[    8.435215] i915 display info: cursor_needs_physical: no
+[    8.436065] i915 display info: has_cdclk_crawl: no
+[    8.436849] i915 display info: has_cdclk_squash: no
+[    8.437628] i915 display info: has_ddi: yes
+[    8.438333] i915 display info: has_dp_mst: yes
+[    8.439047] i915 display info: has_dsb: no
+[    8.439685] i915 display info: has_fpga_dbg: yes
+[    8.440437] i915 display info: has_gmch: no
+[    8.441126] i915 display info: has_hotplug: yes
+[    8.441884] i915 display info: has_hti: no
+[    8.442571] i915 display info: has_ipc: yes
+[    8.443287] i915 display info: has_overlay: no
+[    8.444003] i915 display info: has_psr: yes
+[    8.444680] i915 display info: has_psr_hw_tracking: yes
+[    8.445510] i915 display info: overlay_needs_physical: no
+[    8.446385] i915 display info: supports_tv: no
+[    8.447126] i915 display info: has_hdcp: yes
+[    8.447812] i915 display info: has_dmc: yes
+[    8.448480] i915 display info: has_dsc: yes
+[   20.455496] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
+[   20.457457] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
+[   30.979223] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
+[   41.151483] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
