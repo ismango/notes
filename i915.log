@@ -63,3 +63,28 @@ SynologyNAS> dmesg | grep i915
 [   20.457457] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
 [   30.979223] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
 [   41.151483] i915 0000:01:00.0: [drm] *ERROR* VBT claims to have both internal and external displays on PHY A.  Configuring for internal.
+
+
+
+
+
+
+
+
+
+
+SynologyNAS> lsmod | grep i915
+i915                 2617344  0 
+i2c_algo_bit           16384  1 i915
+drm_buddy              20480  1 i915
+intel_gtt              20480  1 i915
+drm_display_helper    110592  1 i915
+drm_kms_helper         94208  2 i915,drm_display_helper
+ttm                    53248  1 i915
+drm                   389120  6 i915,drm_buddy,drm_display_helper,drm_kms_helper,ttm
+drm_mipi_dsi           20480  2 i915,drm,[permanent]
+i915_compat            24576  3 i915,drm_display_helper,drm
+dmabuf                 61440  8 i915,drm_buddy,drm_display_helper,drm_kms_helper,ttm,drm,drm_mipi_dsi,i915_compat
+
+
+
